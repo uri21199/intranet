@@ -1,0 +1,48 @@
+/* Estilos CSS para la tabla diasFiltrados */
+.diasFiltrados {
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilos CSS para los títulos de columna */
+.diasFiltrados th {
+    padding: 12px;
+    background-color: #1477b2; /* Color de fondo para los encabezados */
+    color: #fff;
+    font-weight: bold;
+    text-align: left;
+}
+
+/* Estilos CSS para las celdas de datos */
+.diasFiltrados td {
+    padding: 12px;
+    border-bottom: 1px solid #ccc; /* Línea divisoria entre filas */
+}
+
+/* Estilos CSS para los inputs dentro de la tabla */
+.diasFiltrados input[type="text"],
+.diasFiltrados input[type="date"] {
+    width: calc(100% - 24px); /* Ancho de la entrada de texto */
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+/* Estilos CSS para el botón de editar */
+.diasFiltrados button[type="submit"] {
+    padding: 8px 12px;
+    background-color: #007bff; /* Color de fondo para el botón */
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Transición suave del color de fondo */
+}
+
+/* Estilos CSS para el botón de editar al pasar el mouse */
+.diasFiltrados button[type="submit"]:hover {
+    background-color: #0056b3; /* Color de fondo más oscuro al pasar el mouse */
+}

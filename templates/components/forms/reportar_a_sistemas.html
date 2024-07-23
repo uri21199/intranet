@@ -1,0 +1,36 @@
+<form action="/reportar_a_sistemas" method="POST" class="reportarASistemas">
+  <div class="mb-3">
+    <label for="categoria" class="form-label">Categoría<span class="text-danger">*</span></label>
+    <select class="form-select" id="categoria" name="categoria" required>
+      <option value="" selected disabled>Seleccione la categoría</option>
+      <option value="Sistemas">Sistemas</option>
+      <option value="Equipo físico">Equipo físico</option>
+      <option value="Posible virus">Posible virus</option>
+      <option value="Requerimientos">Requerimientos</option>
+      <option value="Notificaciones">Notificaciones</option>
+      <option value="Interno">Interno</option>
+    </select>
+  </div>
+  <div class="mb-3" id="subcategoria-container" style="display: none;">
+    <label for="subcategoria" class="form-label">Subcategoría<span class="text-danger">*</span></label>
+    <select class="form-select" id="subcategoria" name="subcategoria" required disabled>
+      <option value="" selected disabled>Seleccione la subcategoría</option>
+    </select>
+  </div>
+  <div class="mb-3" id="tipo-problema-container" style="display: none;">
+    <label for="tipo_problema" class="form-label">Tipo de problema<span class="text-danger">*</span></label>
+    <select class="form-select" id="tipo_problema" name="tipo_problema" required disabled>
+      <option value="" selected disabled>Seleccione el tipo de problema</option>
+    </select>
+  </div>
+  <div class="mb-3">
+    <label for="descripcion_problema" class="form-label">Descripción del problema<span class="text-danger">*</span></label>
+    <textarea class="form-control" id="descripcion_problema" name="descripcion_problema" rows="5" required></textarea>
+  </div>
+  <div class="mb-3">
+    <label for="id_equipo" class="form-label">ID del equipo</label>
+    <input type="text" class="form-control" id="id_equipo" name="id_equipo">
+  </div>
+  <!-- Agrega más campos según sea necesario -->
+  <button type="submit" class="btn btn-primary">Reportar problema</button>
+</form>

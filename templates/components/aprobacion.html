@@ -1,0 +1,62 @@
+{% if dias_por_aprobar %}
+<div class="tablaDropdown">
+    <div class="dropdownHeader" onclick="toggleDropdown()">Fechas por aprobar</div>
+    <div class="dropdownContent">
+        <table class="aprobarSolicitudes">
+            <thead>
+                <tr>
+                    <th>Empleado</th>
+                    <th>Fecha de Inicio</th>
+                    <th>Fecha Final</th>
+                    <th>Concepto</th>
+                    <th>Fecha de Solicitud</th>
+                    <th>Estado</th>
+                    <th>Causa</th>
+                    <th>Acción</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for lista_dias in dias_por_aprobar %}
+                    {% for solicitud in lista_dias %}
+                    <tr>
+                        <td>{{ solicitud.empleado }}</td>
+                        <td>{{ solicitud.fecha_inicio }}</td>
+                        <td>{{ solicitud.fecha_fin }}</td>
+                        <td>{{ solicitud.concepto }}</td>
+                        <td>{{ solicitud.fecha_solicitud }}</td>
+                        <td>{{ solicitud.estado }}</td>
+                        <td>{{ solicitud.causa }}</td>
+                        <td>
+                            <form action="/aprobar_solicitud" method="POST">
+                                <input type="hidden" name="empleado" value="{{ solicitud.empleado }}">
+                                <input type="hidden" name="fecha" value="{{ solicitud.fecha_inicio }}">
+                                <input type="hidden" name="concepto" value="{{ solicitud.concepto }}">
+                                <input type="hidden" name="gerente" value="{{ empleado }}">
+                                <button type="submit" class="aprobarBtn">Aprobar</button>
+                            </form>
+                            <form action="/eliminar_solicitud" method="POST">
+                                <input type="hidden" name="empleado" value="{{ solicitud.empleado }}">
+                                <input type="hidden" name="fecha" value="{{ solicitud.fecha_inicio }}">
+                                <input type="hidden" name="concepto" value="{{ solicitud.concepto }}">
+                                <input type="hidden" name="gerente" value="{{ empleado }}">
+                                <label for="justificacion_{{ solicitud.empleado }}">Justificación del rechazo:</label>
+                                <input type="text" name="causa" id="justificacion_{{ solicitud.empleado }}" required>
+                                <button type="submit" class="eliminarBtn">Rechazar</button>
+                            </form>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+   
+{% endif %}
+
+<script>
+    function mostrarJustificacion(empleado) {
+        var justificacionInput = document.getElementById('justificacion_' + empleado);
+        justificacionInput.style.display = 'block';
+    }
+</script>

@@ -1,0 +1,82 @@
+@import '../../partials/variables';
+
+.nav{
+    .menu{
+        .title{
+            font-size: 10px;
+            font-weight: 500;
+            color: $gris;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+
+        ul{
+            li{
+                position: relative;
+                list-style: none;
+                margin-bottom: 5px;
+
+                a{
+                    display: flex;
+                    align-items: center;
+                    gap: 10px;
+                    font-size: 14px;
+                    font-weight: 500;
+                    color: $gris;
+                    text-decoration: none;
+                    padding: 12px 8px;
+                    border-radius: 8px;
+                    transition: all 0.3s;
+                }
+
+                i{
+                    font-size: 20px;
+                }
+
+                .arrow{
+                    font-size: 14px;
+                    transition: all 0.3s;
+                }
+
+                .text{
+                    flex: 1;
+                }
+            }
+        }
+
+        .subMenu{
+            display: none;
+            margin-left: 20px;
+            padding-left: 20px;
+            padding-top: 5px;
+            border-left: 1px solid #f6f6f6;
+
+            li{
+                a{
+                    padding: 10px 8px;
+                    font-size: 12px;
+                }
+            }
+        }
+    }
+}
+
+.menu ul li > a:hover,
+.menu ul li.active > a{
+    color: #000;
+    background-color: #f6f6f6;
+}
+
+.menu ul li.active .arrow{
+    transform: rotate(180deg);
+}
+
+.menu:not(:last-child){
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #f6f6f6;
+}
+
+.nav{
+    flex: 1;
+}

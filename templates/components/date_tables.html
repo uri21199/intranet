@@ -1,0 +1,92 @@
+<div id="dateTables">
+    <!-- Fechas aprobadas -->
+    <h3>Fechas Aprobadas</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>Fecha</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% if approved_days %}
+                {% for dia in approved_days %}
+                <tr>
+                    <td>{{ dia }}</td>
+                </tr>
+                {% endfor %}
+            {% else %}
+                <tr>
+                    <td>No hay fechas aprobadas</td>
+                </tr>
+            {% endif %}
+        </tbody>
+    </table>
+    <!-- Fechas en espera de autorización -->
+    <h3>Fechas en Espera de Autorización</h3>
+    <table>
+        <thead>
+            <tr>
+            {% if waiting_days %}
+                <th>Fecha</th>
+                <th>Eliminar</th>
+            {% else %}
+                <th>Fecha</th>
+            {% endif %}
+            </tr>
+        </thead>
+        <tbody>
+            {% if waiting_days %}
+                {% for dia in waiting_days %}
+                <tr>
+                    <td>{{ dia }}</td>
+                    <td class="actionWaitingDate">
+                        <!--
+                        <form action="/modificacion_fecha_solicitada" method="POST" style="display: inline;">
+                            <input type="hidden" name="date" value="{{ dia }}">
+                            <button type="submit" class="editarBtn" style="border: none; background: none; cursor: pointer;">
+                                <img src="../static/images/editar.png" alt="Editar" width="20" height="20">
+                            </button>
+                        </form>
+                        -->
+                        <form action="/delete_date" method="POST">
+                            <input type="hidden" name="date" value="{{ dia }}">
+                            <input type="hidden" name="typeOfDay" value="{{ type_of_day }}">
+                            <button type="submit" class="deleteButton">
+                                <img src="../../static/images/eliminar.png" alt="Eliminar">
+                            </button>
+                        </form>
+                    </td>
+                </tr>
+                {% endfor %}
+            {% else %}
+                <tr>
+                    <td>No hay fechas en espera de autorización</td>
+                </tr>
+            {% endif %}
+        </tbody>
+    </table>
+    <!-- Fechas rechazadas -->
+    <h3>Fechas rechazadas</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>Fecha</th>
+                <th>Causa</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% if rejected_days %}
+                {% for dia, causa in rejected_days %}
+                <tr>
+                    <td>{{ dia }}</td>
+                    <td>{{ causa }}</td>
+                </tr>
+                {% endfor %}
+            {% else %}
+                <tr>
+                    <td>No hay fechas rechazadas</td>
+                </tr>
+            {% endif %}
+        </tbody>
+    </table>
+</div>

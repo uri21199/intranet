@@ -1,0 +1,25 @@
+
+{% if claves %}
+<div class="contenedorClaves">
+    <h3>Claves</h3>
+        <!-- Tabla de claves de los distintos mails que se usa por sector -->
+        <table class="tablaClaves">
+            <thead>
+                <tr>
+                    <th>Sistema</th>
+                    <th>Mail</th>
+                    <th>Clave</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for clave in claves %}
+                    <tr>
+                        <td>{{ clave['plataforma'] }}</td>
+                        <td>{{ clave['mail'] }}</td>
+                        <td>{{ clave['clave'] }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endif %}

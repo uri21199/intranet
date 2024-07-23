@@ -1,0 +1,27 @@
+{% if fechas_aprobadas %}
+    <form action="/filtrar_dias" method="POST" class="filtrarDias" onsubmit="return validarFechas()">
+        <label for="empleado">Empleado:</label>
+        <select name="empleado" id="empleado">
+            <option value="todos">Todos los empleados</option>
+            {% for empleado in personal %}
+                <option value="{{ empleado }}">{{ empleado }}</option>
+            {% endfor %}
+        </select>
+
+        <label for="concepto">Concepto:</label>
+        <select name="concepto" id="concepto">
+            <option value="dia_ausencia">Ausencia</option>
+            <option value="dia_vacaciones">Vacaciones</option>
+            <option value="dia_home">Home Office</option>
+            <option value="dia_estudio">Día de estudio</option>
+        </select>
+
+        <label for="fecha">Fecha:</label>
+        <input type="date" name="fecha" id="fecha">
+
+        <label for="fecha_fin">Fecha Final:</label>
+        <input type="date" name="fecha_fin" id="fecha_fin">
+
+        <button type="submit">Filtrar</button>
+    </form>
+{% endif %}

@@ -1,0 +1,47 @@
+{% extends 'components/base.html' %}
+{% set roles_editores = ['jefe de area', 'responsable de area', 'supervisor', 'ceo', 'rrhh'] %}
+
+{% block title %}Edición{% endblock %}
+
+{% block content %}
+    <!-- Si la jerarquia es mayor a 2 o su rol es rrhh mostrará la posibilidad de elegir un empleado -->
+    {% if jerarquia in ['2', '3', '4', '5'] or 'rrhh' in roles %}
+    <form action="/choose_employee" method="POST" class="formEmployee">
+        <div class="form-group">
+            <label for="choose_employee">Seleccionar Empleado:</label>
+            <select id="choose_employee" name="employee" required>
+                <option value="" disabled selected>Elige un empleado</option>
+                {% for employee in personal %}
+                    <option value="{{ employee }}">{{ employee }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        {% if 'rrhh' in roles%}
+        <button type="submit">Editar Empleado</button>
+        {% else %}
+        <button type="submit">Ver Información</button>
+        {% endif %}
+    </form>
+    {% endif %}
+
+    
+    {% if info_employee %}
+    {% include 'components/info_employee.html' %}
+    {% endif %}
+    {% if 'rrhh' in roles %}
+    {% include 'components/forms/add_employee.html' %}
+    {% endif %}
+    {% if 'analista de inventario' in roles %}
+      {% include 'components/info_recursos.html'%}
+    {% endif %}
+    {% with messages = get_flashed_messages(with_categories=true) %}
+  {% if messages %}
+    {% for category, message in messages %}
+      <div class="alert alert-{{ category }}">
+        {{ message }}
+      </div>
+    {% endfor %}
+  {% endif %}
+{% endwith %}
+{% endblock %}
+

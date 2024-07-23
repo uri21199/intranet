@@ -1,0 +1,38 @@
+{% extends 'components/base.html' %}
+
+
+{% block title %}Descarga{% endblock %}
+
+{% block content %}
+<div class="contenedorDescargas">
+  <div class="descargarNominas">
+    <a href="/descargar?accion=nomina" class="btn btn-primary">Descargar nómina</a>
+    <a href="/descargar?accion=nomina_bajas" class="btn btn-primary">Descargar nómina de bajas</a>
+    {% if 'analista de inventario' in roles %}
+    <a href="/descargar?accion=inventario_recursos" class="btn btn-primary">Descargar inventario de recursos</a>
+  </div>
+  {% endif %}
+  <div class="formSeleccionarMes">
+    <form action="/descargar_nov_mens" method="POST" class="formularioDescarga">
+      <label for="mes">Seleccione el mes para descargar novedades:</label>
+      <select name="mes" id="mes">
+        <option value="1">Enero</option>
+        <option value="2">Febrero</option>
+        <option value="3">Marzo</option>
+        <option value="4">Abril</option>
+        <option value="5">Mayo</option>
+        <option value="6">Junio</option>
+        <option value="7">Julio</option>
+        <option value="8">Agosto</option>
+        <option value="9">Septiembre</option>
+        <option value="10">Octubre</option>
+        <option value="11">Noviembre</option>
+        <option value="12">Diciembre</option>
+      </select>
+      <button type="submit" class="btn btn-primary">Descargar novedades mensuales</button>
+  </form>
+  </div>
+</div>
+
+{% endblock %}
+

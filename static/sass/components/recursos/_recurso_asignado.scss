@@ -1,0 +1,54 @@
+/* Estilos mejorados CSS para la tabla */
+#recursoTable {
+    width: 80%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+  
+  /* Estilos mejorados CSS para las celdas de encabezado */
+  #recursoTable th {
+    background-color: #1477b2;
+    color: #fff;
+    padding: 12px;
+    text-align: left;
+    border: 1px solid #ddd;
+  }
+  
+  /* Estilos mejorados CSS para las celdas de datos */
+  #recursoTable td {
+    border: 1px solid #ddd;
+    padding: 12px;
+  }
+  
+/* Estilos mejorados CSS para las filas impares */
+#recursoTable tbody tr:nth-child(odd) {
+    background-color: #f2f9fc; /* Azul muy claro */
+  }
+  
+  /* Estilos mejorados CSS para las filas pares */
+  #recursoTable tbody tr:nth-child(even) {
+    background-color: #f2f2f2; /* Gris claro */
+  }
+  
+  
+
+  /* Estilos mejorados CSS para las filas al pasar el ratón */
+  #recursoTable tbody tr:hover {
+    background-color: #e0e0e0;
+  }
+  
+  /* Estilos mejorados CSS para resaltar la primera columna */
+  #recursoTable td:first-child {
+    font-weight: bold;
+  }
+  
+  /* Estilos mejorados CSS para las celdas de encabezado en la primera fila */
+  #recursoTable thead tr:first-child th {
+    border-top: none;
+  }
+  
+  /* Estilos mejorados CSS para las celdas de datos en la primera fila */
+  #recursoTable tbody tr:first-child td {
+    border-top: none;
+  }
+  

@@ -1,0 +1,80 @@
+/* Estilos mejorados CSS para el contenedor de descargas */
+.contenedorDescargas {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+      /* Estilos mejorados CSS para los botones de descarga */
+  .btn {
+    display: inline-block;
+    padding: 12px 24px;
+    margin-bottom: 10px;
+    border: none;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .btn-primary {
+    background-color: #1477b2;
+    color: #fff;
+  }
+  
+  .btn-primary:hover {
+    background-color: #0d5a85;
+  }
+  
+  /* Estilos mejorados CSS para el formulario de descarga */
+  .formularioDescarga {
+    margin-top: 20px;
+    text-align: center;
+  }
+  
+  /* Estilos mejorados CSS para la etiqueta de mes */
+  label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  /* Estilos mejorados CSS para el selector de mes */
+  select {
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    width: 200px;
+  }
+  
+  /* Estilos mejorados CSS para el botón de enviar */
+  button[type="submit"] {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 6px;
+    background-color: #15b4dc;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  button[type="submit"]:hover {
+    background-color: #0f92b2;
+  }
+  
+  .descargarNominas{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    a{
+      width: 300px;
+    }
+  }
+
+  }
+  

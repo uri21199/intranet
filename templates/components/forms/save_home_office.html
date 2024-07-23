@@ -1,0 +1,36 @@
+<!-- Formulario para guardar home office eligiendo el mes y el día de la semana -->
+<form action="/save_home_office" method="POST" class="formHomeOffice">
+    <div class="form-group">
+        <label for="month">Mes:</label>
+        <select id="month" name="month" required>
+            <option value="" disabled selected>Selecciona el mes</option>
+            <option value="1">Enero</option>
+            <option value="2">Febrero</option>
+            <option value="3">Marzo</option>
+            <option value="4">Abril</option>
+            <option value="5">Mayo</option>
+            <option value="6">Junio</option>
+            <option value="7">Julio</option>
+            <option value="8">Agosto</option>
+            <option value="9">Septiembre</option>
+            <option value="10">Octubre</option>
+            <option value="11">Noviembre</option>
+            <option value="12">Diciembre</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="daysOfWeek">Días de la semana:</label>
+        <select id="daysOfWeek" name="daysOfWeek" required>
+            <option value="" disabled selected>Selecciona los días</option>
+            <option value="0">Lunes</option>
+            <option value="1">Martes</option>
+            <option value="2">Miércoles</option>
+            <option value="3">Jueves</option>
+            <option value="4">Viernes</option>
+        </select>
+    </div>
+    <input type="hidden" name="employee_edit" value="{{ info_employee['empleado'] }}">
+    <input type="hidden" name="area" value="{{ info_employee['area'] }}">
+    <input type="hidden" name="hierarchy" value="{{ info_employee['jerarquia'] }}">
+    <button type="submit">Guardar Home Office</button>
+</form>

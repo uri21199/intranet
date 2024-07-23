@@ -1,0 +1,163 @@
+{% set roles_superiores = ['jefe de area', 'responsable de area', 'supervisor', 'ceo', 'sistemas', 'rrhh'] %}
+<div class="containerSidebar">
+    <div class="sidebar active">
+        <!--
+        <div class="menu-btn">
+            <i class="ph-bold ph-caret-left"></i>
+        </div>
+        -->
+        <div class="headSidebar">
+            <div class="imagenUsuarioSidebar">
+                <img src="{{ url_for('static', filename='images/user.png') }}" alt="Imagen del usuario">
+            </div>
+            <div class="detallesUsuario">
+                <p class="title">Puesto</p>
+                <p class="name"></p>
+            </div>
+        </div>
+        <div class="nav">
+            <div class="menu">
+                <p class="title">{{ empleado }}</p>
+                <ul>
+                    <li class="active">
+                        <a href="{{ url_for('inicio.inicio') }}">
+                            <i class="icon ph-bold ph-house-simple"></i>
+                            <span class="text">Inicio</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="ph-bold ph-calendar-blank"></i>
+                            <span class="text">Dias</span>
+                            <i class="arrow ph-bold ph-caret-down"></i>
+                        </a>
+                        <ul class="subMenu">
+                            <li>
+                                <a href="{{ url_for('estudio.estudio') }}">
+                                    <span class="text">Dias de estudio</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ url_for('ausencia.ausencia') }}">
+                                    <span class="text">Días de ausencia</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ url_for('home.home') }}">
+                                    <span class="text">Días de home</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ url_for('vacaciones.vacaciones') }}">
+                                    <span class="text">Vacaciones</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <!--
+                    <li class="">
+                        <a href="{{ url_for('files_bp.files') }}">
+                            <i class="ph-bold ph-file-text"></i>
+                            <span class="text">Documentos</span>
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a href="#">
+                            <i class="ph-bold ph-chart-bar"></i>
+                            <span class="text">Capacitaciones</span>
+                        </a>
+                    </li>
+                    -->
+                    <li>
+                        <a href="#">
+                            <i class="ph-bold ph-user"></i>
+                            <span class="text">Personal</span>
+                            <i class="arrow ph-bold ph-caret-down"></i>
+                        </a>
+                        <ul class="subMenu">
+                            <!-- MAS ADELANTE
+                            <li>
+                                <a href="#">
+                                    <span class="text">Recibos</span>
+                                </a>
+                            </li>
+                            -->
+                            <li>
+                                <a href="{{ url_for('recursos.recursos') }}">
+                                    <span class="text">Recursos</span>
+                                </a>
+                            </li>
+                            {% if 'jefe de area' in roles or 'responsable de area' in roles or 'supervisor' in roles or 'ceo' in roles or 'sistemas' in roles or 'rrhh' in roles %}                       
+                            <li>
+                                <a href="{{ url_for('descargas.descargas') }}">
+                                    <span class="text">Descargas</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ url_for('informacion.informacion') }}">
+                                    <span class="text">Informacion</span>
+                                </a>
+                            </li>         
+                            <li>
+                                <a href="{{ url_for('aprobacion.aprobacion') }}">
+                                    <span class="text">Aprobacion</span>
+                                </a>
+                            </li>          
+                            {% endif %}
+                            {% if 'rrhh' in roles%}
+                            <li>
+                                <a href="{{ url_for('rrhh.rrhh') }}">
+                                    <span class="text">RRHH</span>
+                                </a>
+                            </li>
+                            {% endif %}
+
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <div class="menu">
+                <p class="title">Reportar</p>
+                <ul>
+                    <li>
+                        <a href="{{ url_for('sistemas.sistemas') }}">
+                            <i class="ph-bold ph-windows-logo"></i>
+                            <span class="text">Sistemas</span>
+                        </a>
+                    </li>
+                    <!--
+                    {% for rol in roles %}
+                        {% if rol in roles_superiores and rol != 'ceo' %}
+                        <li>
+                            <a href="#">
+                                <i class="ph-bold ph-person-simple"></i>
+                                <span class="text">Superior inmediato</span>
+                            </a>
+                        </li>
+                        {% endif %}
+                    {% endfor %}
+                    -->
+                </ul>
+            </div>
+            <div class="menu">
+                <p class="title">Account</p>
+                <ul>
+                    <li>
+                        <a href="{{ url_for( 'configuracion.configuracion') }}">
+                            <i class="ph-bold ph-gear"></i>
+                            <span class="text">Configuración</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ url_for( 'logout.logout' ) }}">
+                            <i class="ph-bold ph-sign-out"></i>
+                            <span class="text">Cerrar sesión</span>
+                        </a>                        
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+</div>

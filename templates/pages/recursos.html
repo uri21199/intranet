@@ -1,0 +1,36 @@
+{% extends 'components/base.html' %}
+
+
+{% block title %}Recursos{% endblock %}
+
+{% block content %}
+    {% if recurso_asignado %}
+        <h3>Recursos asignados</h3>
+        <table id="recursoTable">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Tipo de equipo</th>
+                    <th>Número de serie</th>
+                    <th>Marca</th>
+                    <th>Modelo</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for recurso in recurso_asignado %}
+                <tr>
+                    <td>{{ recurso.id }}</td>
+                    <td>{{ recurso.tipo_de_equipo }}</td>
+                    <td>{{ recurso.nro_serie }}</td>
+                    <td>{{ recurso.marca }}</td>
+                    <td>{{ recurso.modelo }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>No hay recursos asignados.</p>
+    {% endif %}
+{% endblock %}
+
+

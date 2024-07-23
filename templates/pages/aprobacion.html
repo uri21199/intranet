@@ -1,0 +1,17 @@
+{% extends 'components/base.html' %}
+{% set roles_editores = ['jefe de area', 'responsable de area', 'supervisor', 'ceo', 'rrhh'] %}
+
+{% block title %}Edición{% endblock %}
+
+{% block content %}
+  {% if 'rrhh' not in roles %}
+  {% include 'components/aprobacion.html'%}
+  {% endif %}
+  {% if jerarquia in ['2', '3', '4', '5'] %}
+  {% include 'components/dias_aprobados.html'%}
+  {% endif %}
+  {% if dias_filtrados %}
+    {% include 'components/dias_filtrados.html'%}
+  {% endif %}
+{% endblock %}
+

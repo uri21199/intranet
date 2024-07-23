@@ -1,0 +1,44 @@
+/* Estilos mejorados para todas las tablas */
+.tablaEditarRecurso {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Estilos mejorados para las cabeceras de las tablas */
+  .tablaEditarRecurso th {
+    background-color: #1477b2;
+    color: #fff;
+    padding: 12px;
+    text-align: left;
+  }
+  
+  /* Estilos mejorados para las celdas de datos de las tablas */
+  .tablaEditarRecurso td {
+    padding: 12px;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  /* Estilos para las filas impares de las tablas */
+  .tablaEditarRecurso tr:nth-child(odd) {
+    background-color: #f2f2f2;
+  }
+  
+  /* Estilos para los botones en las tablas */
+  .tablaEditarRecurso button {
+    background-color: #1477b2;
+    color: #fff;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  /* Estilos para los botones al pasar el ratón */
+  .tablaEditarRecurso button:hover {
+    background-color: #125f8c;
+  }
+  

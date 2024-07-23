@@ -1,0 +1,53 @@
+  /* Estilos para la tabla de tickets propios */
+.ticketsSistemas {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Estilos para las cabeceras de la tabla */
+  .ticketsSistemas th {
+    background-color: #1477b2;
+    color: #fff;
+    padding: 12px;
+    text-align: left;
+  }
+  
+  /* Estilos para las celdas de datos de la tabla */
+  .ticketsSistemas td {
+    padding: 12px;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  /* Estilos para las filas impares de la tabla */
+  .ticketsSistemas tbody tr:nth-child(odd) {
+    background-color: #f2f2f2;
+  }
+  
+  /* Estilos para los select dentro de la tabla */
+  .ticketsSistemas select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  /* Estilos para los botones dentro de la tabla */
+  .ticketsSistemas button {
+    padding: 8px 16px;
+    background-color: #1477b2;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  /* Estilos para los botones al pasar el ratón */
+  .ticketsSistemas button:hover {
+    background-color: #125f8c;
+  }
+  

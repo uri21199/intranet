@@ -1,0 +1,61 @@
+/* Estilos CSS para el formulario */
+.formDia {
+    max-width: 400px; /* Ancho máximo del formulario */
+    margin: 20px auto; /* Margen superior e inferior, centrado horizontalmente */
+    padding: 20px; /* Relleno interno */
+    background-color: #f9f9f9; /* Color de fondo */
+    border-radius: 8px; /* Borde redondeado */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra */
+
+      /* Estilos CSS para el grupo de formulario */
+  .form-group {
+    margin-bottom: 20px; /* Margen inferior */
+  }
+  
+  /* Estilos CSS para la etiqueta del formulario */
+  label {
+    display: block; /* Mostrar como bloque */
+    margin-bottom: 5px; /* Margen inferior */
+    font-weight: bold; /* Texto en negrita */
+  }
+  
+  /* Estilos CSS para los campos de entrada del formulario */
+  input[type="date"] {
+    padding: 10px; /* Relleno */
+    width: calc(100% - 22px); /* Ancho del campo de entrada */
+    border: 1px solid #ccc; /* Borde */
+    border-radius: 6px; /* Borde redondeado */
+  }
+  
+  /* Estilos CSS para el botón de enviar */
+  button[type="submit"] {
+    padding: 12px 24px; /* Relleno */
+    border: none; /* Sin borde */
+    border-radius: 6px; /* Borde redondeado */
+    background-color: #1477b2; /* Color de fondo */
+    color: #fff; /* Color del texto */
+    cursor: pointer; /* Cursor al pasar el mouse */
+    transition: background-color 0.3s ease; /* Transición suave */
+  }
+  
+  button[type="submit"]:hover {
+    background-color: #0d5a85; /* Cambio de color de fondo al pasar el mouse */
+  }
+  }
+  
+
+/* Estilos para el elemento select */
+.formDia select {
+    padding: 10px; /* Relleno */
+    width: calc(100% - 22px); /* Ancho del campo de entrada */
+    border: 1px solid #ccc; /* Borde */
+    border-radius: 6px; /* Borde redondeado */
+    background-color: #fff; /* Color de fondo */
+    font-size: 16px; /* Tamaño de fuente */
+  }
+  
+  /* Estilos para las opciones dentro del select */
+  .formDia select option {
+    padding: 10px; /* Relleno */
+  }
+  

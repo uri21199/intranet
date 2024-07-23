@@ -1,0 +1,49 @@
+/* Estilos para el formulario de reporte a sistemas */
+.reportarASistemas {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Estilos para las etiquetas */
+  .reportarASistemas label {
+    font-weight: bold;
+  }
+  
+  /* Estilos para los campos de entrada y selección */
+  .reportarASistemas input[type="text"],
+  .reportarASistemas select,
+  .reportarASistemas textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  /* Estilos para el texto de color rojo */
+  .reportarASistemas .text-danger {
+    color: red;
+  }
+  
+  /* Estilos para el botón de enviar */
+  .reportarASistemas button[type="submit"] {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #1477b2;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  /* Estilos para el botón de enviar al pasar el ratón */
+  .reportarASistemas button[type="submit"]:hover {
+    background-color: #125f8c;
+  }
+  

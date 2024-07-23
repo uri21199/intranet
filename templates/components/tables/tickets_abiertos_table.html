@@ -1,0 +1,62 @@
+<table class="ticketsPropios">
+    <h4>Tickets abiertos</h4>
+    <thead>
+      <tr>
+        
+        <th>ID</th>
+        <th>Categoría</th>
+        <th>Subcategoría</th>
+        <th>Tipo de Problema</th>
+        <th>Descripción del Problema</th>
+        <th>ID del Equipo</th>
+        <th>Estado</th>
+        <th>Fecha de Creación</th>
+        <th>Prioridad</th>
+        <th>Estado</th>
+        <th>Empleado</th>
+        <th>Reportado A</th>
+        
+        <th>Acciones</th>
+        
+      </tr>
+    </thead>
+    <tbody>
+      {% for reporte in obtener_tickets %}
+      {% if reporte.empleado == empleado %}
+      <form action="/empleado_notificado" method="POST">
+        <tr>
+          <td>
+            <input type="hidden" name="id" value="{{ reporte.id }}">
+            {{ reporte.id }}
+          </td>          
+          <td>{{ reporte.categoria_problema }}</td>
+          <td>{{ reporte.subcategoria_problema }}</td>
+          <td>{{ reporte.tipo_de_problema }}</td>
+          <td>{{ reporte.descripcion_problema }}</td>
+          <td>{{ reporte.id_equipo }}</td>
+          <td>{{ reporte.estado }}</td>
+          <td>{{ reporte.fecha_creacion }}</td>
+          <td>
+            <input type="hidden" name="estado" value="{{ reporte.estado }}">
+            {{ reporte.estado }}
+          </td>     
+          <td>
+            <input type="hidden" name="prioridad" value="{{ reporte.prioridad }}">
+            {{ reporte.prioridad }}
+          </td>     
+          <td>{{ reporte.empleado }}</td>
+          <td>
+            <input type="hidden" name="reportado_a" value="{{ reporte.reportado_a }}">
+            {{ reporte.reportado_a }}
+          </td>     
+          {% if reporte.estado == 'Cerrado' %}
+            <td><button type="submit" class="btn btn-primary">Notificado</button></td>
+          {% endif %}
+          <td>
+          </td>
+        </tr>
+      </form>
+      {% endif %}
+      {% endfor %}
+    </tbody>
+  </table>

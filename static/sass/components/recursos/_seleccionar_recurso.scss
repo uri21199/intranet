@@ -1,0 +1,45 @@
+/* Estilos para el formulario */
+.seleccionarRecurso {
+    max-width: 400px; /* Ancho máximo del formulario */
+    margin: 20px auto; /* Margen superior e inferior, centrado horizontalmente */
+    padding: 20px; /* Relleno interno */
+    background-color: #f9f9f9; /* Color de fondo */
+    border-radius: 8px; /* Borde redondeado */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra */
+  }
+  
+  /* Estilos para las etiquetas */
+  .seleccionarRecurso label {
+    display: block; /* Mostrar en bloque */
+    margin-bottom: 10px; /* Margen inferior */
+    font-weight: bold; /* Negrita */
+  }
+  
+  /* Estilos para los selectores */
+  .seleccionarRecurso select {
+    width: 100%; /* Ancho completo */
+    padding: 10px; /* Relleno */
+    margin-bottom: 20px; /* Margen inferior */
+    border-radius: 6px; /* Borde redondeado */
+    border: 1px solid #ccc; /* Borde */
+    background-color: #fff; /* Color de fondo */
+  }
+  
+  /* Estilos para el botón */
+  .seleccionarRecurso button {
+    display: block; /* Mostrar en bloque */
+    width: 100%; /* Ancho completo */
+    padding: 10px; /* Relleno */
+    border: none; /* Sin borde */
+    border-radius: 6px; /* Borde redondeado */
+    background-color: #1477b2; /* Color de fondo */
+    color: #fff; /* Color del texto */
+    font-size: 16px; /* Tamaño de fuente */
+    cursor: pointer; /* Cursor de puntero */
+  }
+  
+  /* Estilos para el botón al pasar el ratón */
+  .seleccionarRecurso button:hover {
+    background-color: #125f8c; /* Color de fondo al pasar el ratón */
+  }
+  

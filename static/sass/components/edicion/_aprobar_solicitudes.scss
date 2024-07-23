@@ -1,0 +1,170 @@
+.tablaDropdown {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 10px;
+}
+
+.dropdownHeader {
+    font-weight: bold;
+    text-transform: uppercase;
+    text-align: center;
+    width: 600px;
+    background-color: #0c5b8a;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px 5px 0 0;
+    cursor: pointer;
+}
+
+.dropdownContent {
+    width: 80%;
+    display: block;
+    position: relative;
+    background-color: #f9f9f9;
+    max-height: 300px; /* Altura máxima con desplazamiento */
+    overflow-y: auto; /* Desplazamiento vertical */
+    border: 1px solid #ccc;
+    border-top: none;
+    border-radius: 0 0 5px 5px;
+    z-index: 1;
+    margin-top: 10px;
+}
+
+.dropdownContent table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.dropdownContent th, .dropdownContent td {
+    padding: 8px;
+    border-bottom: 1px solid #ccc;
+}
+
+/* Estilos CSS para el contenedor de tablas de fechas */
+.aprobarSolicitudes {
+    max-width: 80%; /* Cambiado a 80% */
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilos CSS para los títulos de sección */
+.aprobarSolicitudes h3 {
+    margin-bottom: 10px;
+    font-size: 20px;
+    color: #1477b2;
+}
+
+/* Estilos CSS para las tablas */
+.aprobarSolicitudes table {
+    width: 100%;
+    margin-bottom: 20px;
+    border-collapse: collapse;
+}
+
+/* Estilos CSS para las celdas de encabezado */
+.aprobarSolicitudes th {
+    padding: 12px;
+    background-color: #1477b2;
+    color: #fff;
+    font-weight: bold;
+    text-align: left;
+}
+
+/* Estilos CSS para las celdas de datos */
+.aprobarSolicitudes td {
+    padding: 12px;
+    border-bottom: 1px solid #ccc;
+}
+
+/* Estilos CSS para resaltar las filas de acción en espera de autorización */
+.aprobarSolicitudes .actionWaitingDate {
+    background-color: #f63a19;
+}
+
+//* Estilos CSS para los botones de acción */
+.aprobarSolicitudes button {
+    padding: 8px 12px; /* Ajuste del relleno */
+    background-color: #1477b2;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Estilos CSS para los botones de acción cuando se colocan sobre ellos */
+.aprobarSolicitudes button:hover {
+    background-color: #0c5b8a;
+}
+
+/* Estilos CSS para el botón de Aprobar */
+.aprobarSolicitudes .aprobarBtn {
+    background-color: #28a745;
+    margin-bottom: 5px;
+}
+
+/* Estilos CSS para el botón de Aprobar cuando se coloca sobre él */
+.aprobarSolicitudes .aprobarBtn:hover {
+    background-color: #218838;
+}
+
+/* Estilos CSS para el botón de Rechazar */
+.aprobarSolicitudes .eliminarBtn {
+    background-color: #dc3545;
+}
+
+/* Estilos CSS para el botón de Rechazar cuando se coloca sobre él */
+.aprobarSolicitudes .eliminarBtn:hover {
+    background-color: #c82333;
+}
+
+/* Estilos CSS para el espacio de justificación */
+.aprobarSolicitudes .justificacion {
+    display: flex;
+    align-items: center;
+}
+
+.aprobarSolicitudes .justificacion input[type="text"] {
+    flex: 1;
+    margin-right: 10px; /* Espaciado entre el campo de texto y el botón */
+}
+
+@media only screen and (max-width: 1400px) {
+    .aprobarSolicitudes .eliminarBtn {
+        margin-top: 7px;
+    }
+}
+
+/* Estilos CSS para dispositivos con una anchura máxima de 768px (tablets) */
+@media only screen and (max-width: 768px) {
+    .dropdownHeader {
+        width: 100%;
+    }
+}
+
+/* Estilos CSS para dispositivos con una anchura máxima de 576px (teléfonos móviles) */
+@media only screen and (max-width: 576px) {
+    .dropdownHeader {
+        font-size: 14px; /* Reducir el tamaño de la fuente */
+    }
+
+    .dropdownContent {
+        max-height: 200px; /* Reducir la altura máxima del contenido desplegable */
+    }
+
+    .dropdownContent table {
+        font-size: 12px; /* Reducir el tamaño de la fuente de la tabla */
+    }
+
+    .aprobarSolicitudes th,
+    .aprobarSolicitudes td {
+        padding: 6px; /* Reducir el espacio entre celdas */
+    }
+
+    .aprobarSolicitudes button {
+        padding: 6px 10px; /* Reducir el tamaño de los botones */
+    }
+}

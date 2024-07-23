@@ -1,0 +1,122 @@
+@import '../../partials/variables';
+/*CSS para tabla de claves de los mails */
+.contenedorClaves {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 10px 0 20px 0;
+  max-width: 800px;
+  margin: 20px auto;
+
+  h3{
+    font-size: 20px;
+    font-weight: bold;
+    color: #333;
+    margin: 5px 0 10px 0;
+    padding: 5px;
+  }
+}
+
+.tablaClaves {
+  width: 100%;
+  border-collapse: collapse;
+  overflow: hidden;
+}
+
+.tablaClaves th,
+.tablaClaves td {
+  padding: 12px 16px;
+  text-align: left;
+}
+
+.tablaClaves th {
+  background-color: $azul; /* Color de fondo para las celdas de encabezado */
+  font-weight: bold;
+  color: white; /* Color del texto en las celdas de encabezado */
+}
+
+.tablaClaves tr:nth-child(even) {
+  background-color: #f5f5f5; /* Color de fondo para filas pares */
+}
+
+.tablaClaves tr:nth-child(odd) {
+  background-color: #ffffff; /* Color de fondo para filas impares */
+}
+
+.tablaClaves tr:hover {
+  background-color: #e6e6e6; /* Color de fondo al pasar el mouse sobre la fila */
+}
+
+.tablaClaves td {
+  border-bottom: 1px solid #ddd;
+}
+
+.tablaClaves td:first-child {
+  border-left: 1px solid #ddd; /* Borde izquierdo para la primera columna */
+}
+
+.tablaClaves td:last-child {
+  border-right: 1px solid #ddd; /* Borde derecho para la última columna */
+}
+
+/*CSS para tabla de claves de los cumpleaños */
+/* Estilos CSS para la tabla de cumpleaños con colores de la empresa */
+/* Estilos CSS actualizados para la tabla de cumpleaños */
+.contenedorCumpleanios {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 10px 0 20px 0;
+  max-width: 500px;
+  margin: 20px auto;
+}
+
+.contenedorCumpleanios h3 {
+  font-size: 20px;
+  font-weight: bold;
+  color: #333;
+  margin: 5px 0 10px 0;
+  padding: 5px;
+}
+
+.tablaCumpleanios {
+  width: 100%;
+  border-collapse: collapse;
+  overflow: hidden;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+  th, td {
+    padding: 12px 16px;
+    text-align: left;
+  }
+
+  th {
+    background-color: $azul;
+    color: #fff;
+    font-weight: bold;
+    font-size: 14px;
+  }
+
+  tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+
+  tr:hover {
+    background-color: rgba($celeste, 0.2);
+  }
+
+  td {
+    border-bottom: 1px solid $gris;
+    font-size: 12px;
+  }
+}
+
+.tablaCumpleanios tr:hover {
+  background-color: #e6e6e6;
+}
+
+.contenedorCumpleanios p {
+  font-size: 16px;
+  color: #666;
+  text-align: center;
+}

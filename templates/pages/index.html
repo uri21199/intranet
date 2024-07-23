@@ -1,0 +1,33 @@
+{% extends 'components/base.html' %}
+
+
+{% block enlaces %}
+<script src="https://unpkg.com/@phospor-icons/web"></script>
+{% endblock %}
+
+{% block title %}Iniciar Sesión{% endblock %}
+
+{% block content %}
+
+<div class="containerLogueo" id="container">
+	<div class="form-container sign-in-container">
+		<!-- Formulario de inicio de sesión -->
+        <form action="/login" method="POST">
+            <h1>Iniciar sesión</h1>
+            <input type="email" name="email" placeholder="Email" required />
+            <input type="password" name="password" placeholder="Contraseña" required />
+            <button type="submit">Iniciar sesión</button>
+        </form>        
+	</div>
+	<div class="overlay-container">
+		<!-- Información en lado derecho de la Intranet -->
+		<div class="overlay">
+			<div class="overlay-panel overlay-right">
+				<h1>Bienvenido a la Intranet</h1>
+				<p>Desde la Intranet podrás realizar gestiones puntuales con RRHH y chequear información personal</p>
+			</div>
+		</div>
+	</div>
+</div>
+{% endblock %}
+

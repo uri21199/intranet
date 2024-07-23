@@ -1,0 +1,30 @@
+{% extends 'components/base.html' %}
+
+
+{% block title %}Archivos{% endblock %}
+
+{% block content %}
+<h1>Documentos de la Empresa</h1>
+{% if subdir %}
+    <p><a href="{{ url_for('files_bp.files', subdir=subdir.rsplit('/', 1)[0]) }}">Volver</a></p>
+{% endif %}
+<ul class="file-list">
+    {% for item in items %}
+        {% if item.type == 'folder' %}
+            <li class="folder">
+                <a href="{{ url_for('files_bp.files', subdir=(subdir ~ '/' ~ item.name) | trim('/') ) }}">
+                    <img src="{{ url_for('static', filename='images/archivo-verificado.png') }}" alt="{{ item.name }}" class="icon">
+                    {{ item.name }}
+                </a>
+            </li>
+        {% else %}
+            <li class="file">
+                <a href="{{ url_for('files_bp.download_file', filename=(subdir ~ '/' ~ item.name) | trim('/') ) }}">
+                    <img src="{{ url_for('static', filename='images/pdf.png') }}" alt="{{ item.name }}" class="icon">
+                    {{ item.name }}
+                </a>
+            </li>
+        {% endif %}
+    {% endfor %}
+</ul>
+{% endblock %}

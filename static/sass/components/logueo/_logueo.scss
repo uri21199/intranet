@@ -1,0 +1,95 @@
+@import '../../partials/variables';
+
+.containerLogueo{
+    p {
+        font-size: 14px;
+        line-height: 20px;
+        letter-spacing: 0.5px;
+    }
+    
+    button {
+        border-radius: 20px;
+        border: 1px solid $naranja;
+        background-color: $naranja;
+        color: #FFFFFF;
+        font-size: 12px;
+        font-weight: bold;
+        padding: 12px 45px;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        transition: transform 80ms ease-in;
+    }
+
+    form {
+        background-color: #FFFFFF;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        padding: 0 50px;
+        height: 100%;
+        text-align: center;
+
+        input {
+            background-color: #eee;
+            border: none;
+            padding: 12px 15px;
+            margin: 8px 0;
+            width: 400px;
+        }
+    }
+    
+    .form-container {
+        position: absolute;
+        top: 0;
+        height: 100%;
+        transition: all 0.6s ease-in-out;
+        left: 0;
+        width: 50%;
+        z-index: 2;
+    }
+    
+    .overlay-container {
+        position: absolute;
+        top: 0;
+        left: 50%;
+        width: 50%;
+        height: 100%;
+        overflow: hidden;
+        transition: transform 0.6s ease-in-out;
+        z-index: 100;
+
+        .overlay {
+            background: $naranja;
+            background: -webkit-linear-gradient(to right, $rojo, $naranja);
+            background: linear-gradient(to right, $rojo, $naranja);
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: 0 0;
+            color: #FFFFFF;
+            position: relative;
+            left: -100%;
+            height: 100%;
+            width: 200%;
+              transform: translateX(0);
+            transition: transform 0.6s ease-in-out;
+
+            .overlay-panel {
+                position: absolute;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-direction: column;
+                padding: 0 40px;
+                text-align: center;
+                top: 0;
+                height: 100%;
+                width: 50%;
+                transform: translateX(0);
+                transition: transform 0.6s ease-in-out;
+                right: 0;
+                transform: translateX(0);
+            }
+        }
+    }
+}

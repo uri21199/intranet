@@ -1,0 +1,48 @@
+@import './components/menu_lateral/menu';
+@import './components/logueo/logueo';
+@import './components/edicion/elegir_empleado';
+@import './components/edicion/guardar_home';
+@import './components/edicion/aprobar_solicitudes';
+@import './components/edicion/filtrar_dias';
+@import './components/edicion/dias_filtrados';
+@import './components/tablas_inicio/tablas_inicio';
+@import './components/calendario/calendar';
+@import './components/descargas/descargas';
+@import './components/dias_solicitados/form_solicitar';
+@import './components/dias_solicitados/tablas_dias';
+@import './components/recursos/recurso_asignado';
+@import './components/recursos/seleccionar_recurso';
+@import './components/recursos/tabla_editar_recurso';
+@import './components/sistemas/reportar_a_sistemas';
+@import './components/sistemas/tickets_propios';
+@import './components/sistemas/tickets_sistemas';
+@import './components/ajustes/contrasena';
+@import './components/archivos/archivos';
+@import url(https://fonts.googleapis.com/css?family=Inter:100,200,300,regular,500,600,700,800,900);
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Inter", sans-serif;
+}
+
+body{
+    background-color: #5b6677;
+}
+
+.container {
+    display: flex;
+}
+
+.menu-lateral {
+    flex: 0 0 auto;
+    position: fixed;
+}
+
+.content {
+    flex: 1;
+    margin: 10px 0 0 100px;
+}
+
+

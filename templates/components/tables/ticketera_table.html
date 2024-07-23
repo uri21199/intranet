@@ -1,0 +1,106 @@
+<table class="ticketsSistemas">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Categoría</th>
+      <th>Subcategoría</th>
+      <th>Tipo de Problema</th>
+      <th>Descripción del Problema</th>
+      <th>ID del Equipo</th>
+      <th>Estado</th>
+      <th>Fecha de Creación</th>
+      <th>Prioridad</th>
+      <th>Empleado</th>
+      <th>Reportado A</th>
+      <th>Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for reporte in reportes_a_sistemas %}
+    <form action="/modificar_ticket/{{ reporte.id }}" method="POST">
+      <tr>
+        <td>{{ reporte.id }}</td>
+        <td>{{ reporte.categoria_problema }}</td>
+        <td>{{ reporte.subcategoria_problema }}</td>
+        <td>{{ reporte.tipo_de_problema }}</td>
+        <td>{{ reporte.descripcion_problema }}</td>
+        <td>{{ reporte.id_equipo }}</td>
+        <td>
+          <select name="estado" id="estado_{{ reporte.id }}">
+            {% set estados = {
+              'Acceso denegado': ['Notificado', 'En curso', 'Acceso otorgado', 'Cerrado'],
+              'Errores de aplicación': ['Notificado', 'En curso', 'Error resuelto', 'Cerrado'],
+              'Problemas de sincronización': ['Notificado', 'En curso', 'Sincronización completada', 'Cerrado'],
+              'Mensajes no enviados/recibidos': ['Notificado', 'En curso', 'Problema resuelto', 'Cerrado'],
+              'Problemas de conexión': ['Notificado', 'En curso', 'Conexión restablecida', 'Cerrado'],
+              'Errores de configuración': ['Notificado', 'En curso', 'Configuración corregida', 'Cerrado'],
+              'No enciende': ['Notificado', 'En curso', 'Reparado', 'Cerrado'],
+              'Lentitud': ['Notificado', 'En curso', 'Optimizado', 'Cerrado'],
+              'Bloqueos/Reinicios inesperados': ['Notificado', 'En curso', 'Reparado', 'Cerrado'],
+              'Fallos de hardware': ['Notificado', 'En curso', 'Reemplazado', 'Cerrado'],
+              'Problemas de software': ['Notificado', 'En curso', 'Resuelto', 'Cerrado'],
+              'No responde': ['Notificado', 'En curso', 'Reparado', 'Cerrado'],
+              'Movimientos erráticos': ['Notificado', 'En curso', 'Reparado', 'Cerrado'],
+              'Problemas de conexión': ['Notificado', 'En curso', 'Resuelto', 'Cerrado'],
+              'Teclas no funcionan': ['Notificado', 'En curso', 'Reparado', 'Cerrado'],
+              'Respuesta lenta': ['Notificado', 'En curso', 'Optimizado', 'Cerrado'],
+              'Pantalla negra': ['Notificado', 'En curso', 'Reparado', 'Cerrado'],
+              'Resolución incorrecta': ['Notificado', 'En curso', 'Configurado correctamente', 'Cerrado'],
+              'Problemas de color o brillo': ['Notificado', 'En curso', 'Configurado correctamente', 'Cerrado'],
+              'No imprime': ['Notificado', 'En curso', 'Reparado', 'Cerrado'],
+              'Atascos de papel': ['Notificado', 'En curso', 'Resuelto', 'Cerrado'],
+              'Calidad de impresión deficiente': ['Notificado', 'En curso', 'Reparado', 'Cerrado'],
+              'Posible phishing': ['Notificado', 'En curso', 'Email bloqueado', 'Cerrado'],
+              'Sitios webs':['Notificado', 'Cerrado'],
+              'Sistemas contratados': ['Notificado', 'Cerrado'],
+              'Adjuntos sospechosos': ['Notificado', 'En curso', 'Adjunto eliminado', 'Cerrado'],
+              'Enlaces sospechosos': ['Notificado', 'En curso', 'Enlace bloqueado', 'Cerrado'],
+              'Detección de virus/malware': ['Notificado', 'En curso', 'Virus eliminado', 'Cerrado'],
+              'Comportamiento anómalo': ['Notificado', 'En curso', 'Investigado', 'Cerrado'],
+              'Solicitud de escaneo de seguridad': ['Notificado', 'En curso', 'Escaneo completado', 'Cerrado'],
+              'Nueva línea telefónica': ['Solicitado', 'En curso', 'Activado', 'Cerrado'],
+              'Extensión existente': ['Solicitado', 'En curso', 'Modificado', 'Cerrado'],
+              'Nuevo correo electrónico': ['Solicitado', 'En curso', 'Creado', 'Cerrado'],
+              'Modificación de correo existente': ['Solicitado', 'En curso', 'Modificado', 'Cerrado'],
+              'Cambios de permisos de usuario': ['Solicitado', 'En curso', 'Modificado', 'Cerrado'],
+              'Asignación de recursos adicionales': ['Solicitado', 'En curso', 'Asignado', 'Cerrado'],
+              'Nueva licencia de software': ['Solicitado', 'En curso', 'Adquirida', 'Cerrado'],
+              'Renovación de licencia existente': ['Solicitado', 'En curso', 'Renovada', 'Cerrado'],
+              'Mouse/teclado adicionales': ['Solicitado', 'En curso', 'Adquiridos', 'Cerrado'],
+              'Equipos adicionales': ['Solicitado', 'En curso', 'Adquiridos', 'Cerrado'],
+              'Mantenimiento preventivo': ['Solicitado', 'En curso', 'Completado', 'Cerrado'],
+              'Asesoría técnica': ['Solicitado', 'En curso', 'Completada', 'Cerrado'],
+              'Sugerencias de mejora tecnológica': ['Solicitado', 'En curso', 'Evaluado', 'Cerrado']
+            } %}
+            {% for estado in estados[reporte.tipo_de_problema] %}
+            <option value="{{ estado }}" {% if reporte.estado == estado %} selected {% endif %}>{{ estado }}</option>
+            {% endfor %}
+          </select>
+        </td>
+        <td>{{ reporte.fecha_creacion }}</td>
+        <td>
+          <select name="prioridad" id="prioridad_{{ reporte.id }}">
+            <option value="Alta" {% if reporte.prioridad == 'Alta' %} selected {% endif %}>Alta</option>
+            <option value="Normal" {% if reporte.prioridad == 'Normal' %} selected {% endif %}>Normal</option>
+            <option value="Baja" {% if reporte.prioridad == 'Baja' %} selected {% endif %}>Baja</option>
+          </select>
+        </td>
+        <td>{{ reporte.empleado }}</td>
+        <td>
+          <select name="reportado_a" id="reportado_a_{{ reporte.id }}">
+            <option value="{{ reporte.reportado_a }}" selected>{{ reporte.reportado_a }}</option>
+            {% for empleado in empleados_sistemas %}
+              {% if empleado != reporte.reportado_a %}
+                <option value="{{ empleado }}">{{ empleado }}</option>
+              {% endif %}
+            {% endfor %}
+          </select>
+        </td>
+        <td>
+          <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+        </td>
+      </tr>
+    </form>
+    {% endfor %}
+  </tbody>
+</table>

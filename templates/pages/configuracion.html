@@ -1,0 +1,29 @@
+{% extends 'components/base.html' %}
+
+
+{% block title %}Configuración{% endblock %}
+
+{% block content %}
+    <!-- Formulario para cambiar la contraseña -->
+    <div class="containerFormChangePass">
+        <form id="changePassForm" action="/save_pass" method="POST">
+            <div>
+                <input type="hidden" value="{{empleado}}" name="empleado">
+                <label for="oldPass">Contraseña anterior:</label>
+                <input type="password" id="oldPass" name="oldPass" required>
+            </div>
+            <div>
+                <p>La nueva contraseña debe tener una mayúscula, un número y 8 caracteres mínimo.</p>
+                <label for="newPass">Nueva contraseña:</label>
+                <input type="password" id="newPass" name="newPass" required>
+            </div>
+            <div>
+                <label for="confirmPass">Confirmar nueva contraseña:</label>
+                <input type="password" id="confirmPass" name="confirmPass" required>
+            </div>
+            <button type="submit">Guardar</button>
+        </form>
+        {% include 'components/flash_message.html' %}
+    </div>
+{% endblock %}
+

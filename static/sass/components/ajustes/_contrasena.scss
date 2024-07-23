@@ -1,0 +1,56 @@
+/* Estilos para el contenedor del formulario de cambio de contraseña */
+.containerFormChangePass {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Estilos para los elementos del formulario */
+  .containerFormChangePass label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+  }
+  
+  .containerFormChangePass input[type="password"],
+  .containerFormChangePass button {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+  }
+  
+  /* Estilos para el párrafo de instrucciones */
+  .containerFormChangePass p {
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-size: 14px;
+  }
+  
+  /* Estilos para el botón de guardar */
+  .containerFormChangePass button {
+    background-color: #1477b2;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+  }
+  
+  /* Estilos para el botón de guardar al pasar el ratón */
+  .containerFormChangePass button:hover {
+    background-color: #125f8c;
+  }
+  
+  /* Estilos para los mensajes flash */
+  .containerFormChangePass .flash-message {
+    margin-top: 15px;
+  }
+  

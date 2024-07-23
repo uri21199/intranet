@@ -1,0 +1,23 @@
+{% extends 'components/base.html' %}
+
+
+{% block title %}Día de home{% endblock %}
+
+{% block content %}
+    <h2>Módulo de días de home</h2>
+    <!-- Formulario para guardar home office -->
+    <form action="/save_date" method="POST" class="formDia">
+        <div class="form-group">
+            <label for="requestedDay">Elegir una fecha:</label>
+            <input type="date" id="requestedDay" name="requestedDay" required>
+            <input type="hidden" value="{{empleado}}">
+            <input type="hidden" name="typeOfDay" value="home">
+        </div>
+        <button type="submit">Guardar fecha</button>
+    </form>
+
+    {% include 'components/flash_message.html' %}
+
+    {% include 'components/date_tables.html' %}
+{% endblock %}
+

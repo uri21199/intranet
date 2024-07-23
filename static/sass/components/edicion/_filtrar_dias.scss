@@ -1,0 +1,43 @@
+/* Estilos CSS para el formulario filtrarDias */
+.filtrarDias {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilos CSS para las etiquetas */
+.filtrarDias label {
+    display: block;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+/* Estilos CSS para los selectores */
+.filtrarDias select,
+.filtrarDias input[type="date"] {
+    width: calc(100% - 20px); /* El ancho es el 100% menos el padding */
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+
+/* Estilos CSS para el botón */
+.filtrarDias button {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff; /* Color azul para el botón */
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Transición suave del color de fondo */
+}
+
+/* Estilos CSS para el botón cuando se coloca sobre él */
+.filtrarDias button:hover {
+    background-color: #0056b3; /* Color azul oscuro en hover */
+}

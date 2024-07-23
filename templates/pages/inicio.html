@@ -1,0 +1,15 @@
+{% extends 'components/base.html' %}
+
+
+{% block title %}Inicio{% endblock %}
+
+{% block content %}
+    
+    {% include 'components/calendario.html' %}
+    {% include 'components/claves.html' %}
+    {% include 'components/cumpleanios.html' %}
+{% endblock %}
+
+{% block scripts %}
+<script src="../../static/js/calendar.js"></script>
+{% endblock %}

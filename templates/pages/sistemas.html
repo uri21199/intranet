@@ -1,0 +1,15 @@
+{% extends 'components/base.html' %}
+
+{% block title %}Reporte a sistemas{% endblock %}
+
+{% block content %}
+{% include './components/forms/reportar_a_sistemas.html' %}
+  {% if 'sistemas' in roles %}
+  {% include './components/ticketera_sistemas.html' %}
+  {% endif %}
+  {% include './components/tickets_abiertos.html' %}
+{% endblock %}
+
+{% block scripts %}
+<script src="../../static/js/reporte_a_sistemas.js"></script>
+{% endblock %}

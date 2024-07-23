@@ -1,0 +1,36 @@
+<table class="diasFiltrados">
+    <thead>
+      <tr>
+        <th>Empleado</th>
+        <th>Fecha de Inicio</th>
+        <th>Fecha Final</th>
+        <th>Fecha de Solicitud</th>
+        <th>Estado</th>
+        <th>Causa</th>
+        <th>Acción</th>
+      </tr>
+    </thead>
+    <tbody>
+        {% for dia in dias_filtrados %}
+        <form action="/editar_dia" method="POST">
+            <tr>
+                <td><input type="text" name="empleado" value="{{ dia.empleado }}" readonly></td>
+                <td><input type="date" name="fecha_inicio" value="{{ dia.fecha_inicio }}"></td>
+                <td><input type="date" name="fecha_final" value="{{ dia.fecha_final }}"></td>
+                <td><input type="text" name="fecha_solicitud" value="{{ dia.fecha_solicitud }}" readonly></td>
+                <td><input type="text" name="estado" value="{{ dia.estado }}"></td>
+                <td><input type="text" name="causa" value="{{ dia.causa }}"></td>
+                <input type="hidden" name="concepto" value="{{ dia.concepto }}">
+                <input type="hidden" name="superior" value="{{ empleado }}">
+                <td>
+                    <button type="submit">Editar</button>
+                </td>
+            </tr>
+            <input type="hidden" name="empleado" value="{{ dia.empleado }}">
+            <input type="hidden" name="fecha_inicio" value="{{ dia.fecha_inicio }}">
+        </form>
+        {% endfor %}
+    </tbody>
+    
+  </table>
+  

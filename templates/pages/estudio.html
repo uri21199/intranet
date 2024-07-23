@@ -1,0 +1,23 @@
+{% extends 'components/base.html' %}
+
+
+{% block title %}Día de estudio{% endblock %}
+
+{% block content %}
+    <h2>Módulo de días de estudio</h2>
+    <!-- Formulario para guardar día de estudio -->
+    <form action="/save_date" method="POST" class="formDia">
+        <div class="form-group">
+            <label for="requestedDay">Elegir una fecha:</label>
+            <input type="date" id="requestedDay" name="requestedDay" required>
+            <input type="hidden" value="{{empleado}}">
+            <input type="hidden" name="typeOfDay" value="estudio">
+        </div>
+        <button type="submit">Guardar fecha</button>
+    </form>
+
+    {% include 'components/flash_message.html' %}
+
+    {% include 'components/date_tables.html' %}
+{% endblock %}
+

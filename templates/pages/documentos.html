@@ -1,0 +1,15 @@
+{% extends 'components/base.html' %}
+
+
+{% block title %}Documentos{% endblock %}
+
+{% block content %}
+<h2>Listado de Documentos</h2>
+<ul>
+    {% for documento in lista_documentos %}
+    <li><a href="{{ documento.enlace }}" target="_blank">{{ documento.nombre }}</a></li>
+    {% endfor %}
+</ul>
+{% endblock %}
+
+

@@ -1,0 +1,176 @@
+    <style>
+        #formularioEmpleado {
+            display: none;
+        }
+        #mostrarFormulario {
+    padding: 10px 20px; /* Espaciado interno del botón */
+    background-color: #007bff; /* Color de fondo */
+    color: #fff; /* Color del texto */
+    border: none; /* Sin borde */
+    border-radius: 5px; /* Bordes redondeados */
+    cursor: pointer; /* Cursor al pasar sobre el botón */
+    font-size: 16px; /* Tamaño de la fuente */
+    transition: background-color 0.3s ease; /* Transición suave del color de fondo */
+}
+
+#mostrarFormulario:hover {
+    background-color: #0056b3; /* Color de fondo más oscuro al pasar el mouse */
+}
+
+    </style>
+<button id="mostrarFormulario">Agregar nuevo empleado</button>
+<!-- Formulario para agregar un nuevo empleado -->
+<div id="formularioEmpleado" style="display: none;">
+    <form action="/save_new_employee" method="POST" class="formEmployee">
+        <div class="form-group">
+            <label for="empleado">Nombre del Empleado:</label>
+            <input type="text" id="empleado" name="empleado" required>
+        </div>
+        <div class="form-group">
+            <label for="cuil">CUIL:</label>
+            <input type="text" id="cuil" name="cuil" required>
+        </div>
+        <div class="form-group">
+            <label for="fecha_ingreso">Fecha ingreso:</label>
+            <input type="date" id="fecha_ingreso" name="fecha_ingreso" required>
+        </div>
+        <!-- finaliza_pp va a ser funcion: fecha_ingreso + 3 meses-->
+        <div class="form-group">
+            <label for="legajo">Legajo:</label>
+            <input type="text" id="legajo" name="legajo" required>
+        </div>
+        <div class="form-group">
+            <label for="mail">Mail:</label>
+            <input type="text" id="mail" name="mail" required> <!-- Validar mail -->
+        </div>
+        <!-- Cuenta va a ser 'SI' -->
+        <div class="form-group">
+            <label for="genero">Genero:</label>
+            <select id="genero" name="genero" required>
+                <option value="M">M</option>
+                <option value="F">F</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="fecha_nacimiento">Fecha nacimiento:</label>
+            <input type="date" id="fecha_nacimiento" name="fecha_nacimiento" required>
+        </div>
+        <div class="form-group">
+            <label for="forma">Forma:</label>
+            <select id="forma" name="forma" required>
+                <option value="Presencial">Presencial</option>
+                <option value="Remoto">Remoto</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="turno">Turno:</label>
+            <select id="turno" name="turno" required>
+                <option value="Mañana">Mañana</option>
+                <option value="Tarde">Tarde</option>
+                <option value="Noche">Noche</option>
+                <option value="Finde (Dia)">Fin de semana (Día)</option>
+                <option value="Finde (Noche)">Fin de semana (Noche)</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="area">Area:</label>
+            <select id="area" name="area" required>
+                <option value="Operaciones">Operaciones</option>
+                <option value="Claims">Claims</option>
+                <option value="Reintegros">Reintegros</option>
+                <option value="Bordereaux">Bordereaux</option>
+                <option value="Analytics">Analytics</option>
+                <option value="Account Manager">Account Manager</option>
+                <option value="Billing">Billing</option>
+                <option value="Calidad">Calidad</option>
+                <option value="Comercial">Comercial</option>
+                <option value="Pagos">Pagos</option>
+                <option value="Maestranza">Maestranza</option>
+                <option value="RRHH">RRHH</option>
+                <option value="Sistemas">Sistemas</option>
+                <option value="Gerencia">Gerencia</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="jerarquia">Posición:</label>
+            <select id="jerarquia" name="jerarquia" required>
+                <option value="1">Operador/Analista</option>
+                <option value="2">Supervisor</option>
+                <option value="3">Jefe de área</option>
+                <option value="4">Responsable de área</option>
+                <option value="5">CEO</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="categoria">Categoria:</label>
+            <select id="categoria" name="categoria" required>
+                <option value="Junior">Junior</option>
+                <option value="Senior">Senior</option>
+                <option value="Team Leader">Team Leader</option>
+                <option value="Supervisor">Supervisor</option>
+                <option value="Gerencia">Gerencia</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="convenio">Convenio:</label>
+            <select id="convenio" name="convenio" required>
+                <option value="Si">Si</option>
+                <option value="No">No</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="medife">Medife:</label>
+            <select id="medife" name="medife" required>
+                <option value="Si">Si</option>
+                <option value="No">No</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label>Roles:</label><br>
+            <input type="checkbox" id="rol_analista_de_inventario" name="roles[]" value="analista_de_inventario">
+            <label for="rol_analista_de_inventario">Analista de Inventario</label><br>
+    
+            <input type="checkbox" id="rol_capacitador" name="roles[]" value="capacitador">
+            <label for="rol_capacitador">Capacitador</label><br>
+    
+            <input type="checkbox" id="rol_ceo" name="roles[]" value="ceo">
+            <label for="rol_ceo">CEO</label><br>
+    
+            <input type="checkbox" id="rol_jefe_area" name="roles[]" value="jefe_de_area">
+            <label for="rol_jefe_area">Jefe de Área</label><br>
+    
+            <input type="checkbox" id="rol_operador" name="roles[]" value="operador">
+            <label for="rol_operador">Operador</label><br>
+    
+            <input type="checkbox" id="rol_recibos_sueldo" name="roles[]" value="recibos_de_sueldo">
+            <label for="rol_recibos_sueldo">Recibos de Sueldo</label><br>
+    
+            <input type="checkbox" id="rol_rrhh" name="roles[]" value="rrhh">
+            <label for="rol_rrhh">Recursos Humanos (RRHH)</label><br>
+    
+            <input type="checkbox" id="rol_responsable_area" name="roles[]" value="responsable_de_area">
+            <label for="rol_responsable_area">Responsable de Área</label><br>
+    
+            <input type="checkbox" id="rol_sistemas" name="roles[]" value="sistemas">
+            <label for="rol_sistemas">Sistemas</label><br>
+    
+            <input type="checkbox" id="rol_supervisor" name="roles[]" value="supervisor">
+            <label for="rol_supervisor">Supervisor</label><br>
+        </div>
+    
+        <button type="submit">Guardar Nuevo Empleado</button>
+    </form>
+</div>
+<script>
+document.getElementById('mostrarFormulario').addEventListener('click', function() {
+    let boton = document.getElementById('mostrarFormulario');
+    let formulario = document.getElementById('formularioEmpleado');
+    if (formulario.style.display === 'none' || formulario.style.display === '') {
+        formulario.style.display = 'block';
+        boton.textContent = 'Ocultar formulario';
+    } else {
+        formulario.style.display = 'none';
+        boton.textContent = 'Agregar nuevo empleado';
+    }
+});
+</script>

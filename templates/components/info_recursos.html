@@ -1,0 +1,169 @@
+<h3>Editar Recurso</h3>
+<form action="/elegir_recurso_edit" method="POST" class="seleccionarRecurso">
+    <label for="recurso_id">Selecciona un recurso:</label>
+    <select id="recurso_id" name="recurso_id">
+        {% for recurso in recursos %}
+            <option value="{{ recurso }}">{{ recurso[0] }}</option>
+        {% endfor %}
+    </select>
+    <label for="causa">Selecciona una causa:</label>
+    <select name="causa" id="">
+        <option value="informacion">Cambio de información</option>
+        <option value="estado">Cambio de estado</option>
+        <option value="asignacion">Cambio de asignación</option>
+    </select>
+    <button type="submit">Editar</button>
+</form>
+
+{% if recurso_ %}
+    {% if recurso_|length == 9 %}
+    <table class="tablaEditarRecurso">
+        <h3>Información del Recurso</h3>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Tipo de Equipo</th>
+                <th>Usuario</th>
+                <th>AnyDesk</th>
+                <th>Número de Serie</th>
+                <th>Marca</th>
+                <th>Modelo</th>
+                <th>Ficha</th>
+                <th>Comentarios</th>                
+            </tr>
+        </thead>
+        <tbody>
+            <form action="/editar_recurso" method="POST">
+                <tr>
+                    <td>
+                        <input style="width: 60px;" type="text" id="id" name="id" value="{{ recurso_.id }}" readonly>
+                    </td>
+                    <td>
+                        <input style="width: 100px;" type="text" id="tipo_de_equipo" name="tipo_de_equipo" value="{{ recurso_.tipo_de_equipo }}">
+                    </td>
+                    <td>
+                        <input style="width: 200px;" type="text" id="usuario" name="usuario" value="{{ recurso_.usuario }}">
+                    </td>
+                    <td>
+                        <input style="width: 100px;" type="text" id="anydesk" name="anydesk" value="{{ recurso_.anydesk }}">
+                    </td>
+                    <td>
+                        <input style="width: 150px;" type="text" id="nro_serie" name="nro_serie" value="{{ recurso_.nro_serie }}">
+                    </td>
+                    <td>
+                        <input style="width: 80px;" type="text" id="marca" name="marca" value="{{ recurso_.marca }}">
+                    </td>
+                    <td>
+                        <input style="width: 140px;" type="text" id="modelo" name="modelo" value="{{ recurso_.modelo }}">
+                    </td>
+                    <td>
+                        <input style="width: 60px;" type="text" id="ficha" name="ficha" value="{{ recurso_.ficha }}">
+                    </td>
+                    <td>
+                        <input style="width: 200px;" type="text" id="comentarios" name="comentarios" value="{{ recurso_.comentarios }}">
+                    </td>
+                    <td>
+                        <button type="submit">Guardar</button>
+                    </td>
+                </tr>
+            </form>
+        </tbody>
+    </table>
+
+        {% elif recurso_|length == 8 %}
+        <table class="tablaEditarRecurso">
+            <h3>Información del recurso</h3>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Tipo de Equipo</th>
+                    <th>Estado</th>
+                    <th>Ubicación</th>
+                    <th>Usuario</th>
+                    <th>Área</th>
+                    <th>Cliente</th>
+                    <th>Comentarios</th>
+                </tr>
+            </thead>
+            <tbody>
+                <form action="/editar_recurso" method="POST">
+                    <tr>
+                        <td>
+                            <input style="width: 60px;" type="text" id="id" name="id" value="{{ recurso_.id }}" readonly>
+                        </td>
+                        <td>
+                            <input style="width: 100px;" type="text" id="tipo_de_equipo" name="tipo_de_equipo" value="{{ recurso_.tipo_de_equipo }}">
+                        </td>
+                        <td>
+                            <input style="width: 100px;" type="text" id="estado" name="estado" value="{{ recurso_.estado }}">
+                        </td>
+                        <td>
+                            <input style="width: 60px;" type="text" id="ubicacion" name="ubicacion" value="{{ recurso_.ubicacion }}">
+                        </td>
+                        <td>
+                            <input style="width: 200px;" type="text" id="usuario" name="usuario" value="{{ recurso_.usuario }}">
+                        </td>
+                        <td>
+                            <input style="width: 100px;" type="text" id="area" name="area" value="{{ recurso_.area }}">
+                        </td>
+                        <td>
+                            <input style="width: 150px;" type="text" id="cliente" name="cliente" value="{{ recurso_.cliente }}">
+                        </td>
+                        <td>
+                            <input style="width: 200px;" type="text" id="comentarios" name="comentarios" value="{{ recurso_.comentarios }}">
+                        </td>
+                        <td>
+                            <button type="submit">Guardar</button>
+                        </td>
+                    </tr>
+                </form>
+            </tbody>
+        </table>
+        {% elif recurso_|length == 7 %}
+        <table class="tablaEditarRecurso">
+            <h3>Asignación del Recurso</h3>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Tipo de Equipo</th>
+                    <th>Ubicación</th>
+                    <th>Usuario</th>
+                    <th>Área</th>
+                    <th>Cliente</th>
+                    <th>Comentarios</th>
+                </tr>
+            </thead>
+            <tbody>
+                <form action="/editar_recurso" method="POST">
+                    <tr>
+                        <td>
+                            <input style="width: 60px;" type="text" id="id" name="id" value="{{ recurso_.id }}" readonly>
+                        </td>
+                        <td>
+                            <input style="width: 100px;" type="text" id="tipo_de_equipo" name="tipo_de_equipo" value="{{ recurso_.tipo_de_equipo }}">
+                        </td>
+                        <td>
+                            <input style="width: 60px;" type="text" id="ubicacion" name="ubicacion" value="{{ recurso_.ubicacion }}">
+                        </td>
+                        <td>
+                            <input style="width: 200px;" type="text" id="usuario" name="usuario" value="{{ recurso_.usuario }}">
+                        </td>
+                        <td>
+                            <input style="width: 100px;" type="text" id="area" name="area" value="{{ recurso_.area }}">
+                        </td>
+                        <td>
+                            <input style="width: 150px;" type="text" id="cliente" name="cliente" value="{{ recurso_.cliente }}">
+                        </td>
+                        <td>
+                            <input style="width: 200px;" type="text" id="comentarios" name="comentarios" value="{{ recurso_.comentarios }}">
+                        </td>
+                        <td>
+                            <button type="submit">Guardar</button>
+                        </td>
+                    </tr>
+                </form>
+            </tbody>
+        </table>  
+    {% endif %}
+{% endif %}
+

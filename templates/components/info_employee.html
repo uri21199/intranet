@@ -1,0 +1,29 @@
+{% if jerarquia in ['2'] %}
+<p>{{info_employee['empleado']}}</p>
+<p>{{info_employee['cuil']}}</p>
+<p>{{info_employee['fecha_ingreso']}}</p>
+<p>{{info_employee['legajo']}}</p>
+<p>{{info_employee['mail']}}</p>
+<p>{{info_employee['fecha_nacimiento']}}</p>
+<p>{{info_employee['categoria']}}</p>
+<p>{{info_employee['convenio']}}</p>
+<!--
+<p>{{info_employee['forma']}}</p>
+<p>{{info_employee['turno']}}</p>
+<p>{{info_employee['area']}}</p>
+<p>{{info_employee['jerarquia']}}</p>
+-->
+{% endif %}
+
+{% if jerarquia in ['3'] %}
+    {% include 'components/forms/view_employee_info.html' %}
+    {% include 'components/forms/save_home_office.html' %}
+{% endif %}
+
+{% if jerarquia in ['4', '5'] %}
+    {% include 'components/forms/view_employee_info.html' %}
+{% endif %}
+
+{% if 'rrhh' in roles %}
+    {% include 'components/forms/edit_employee_info.html' %}
+{% endif %}
