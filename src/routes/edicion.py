@@ -58,6 +58,33 @@ def aprobacion():
         #print(fechas_aprobadas_json)
         return render_template('pages/aprobacion.html', empleado = empleado, roles = roles, personal = personal, jerarquia=jerarquia, dias_por_aprobar=dias_por_aprobar, fechas_aprobadas=fechas_apro_fin, recursos=recursos)
     
+editarDia_bp = Blueprint('editarDia', __name__)
+# Ruta para ir a editarDia.html
+@editarDia_bp.route('/editarDia')
+def editarDia():
+    if 'user' in session:
+        empleado = session['empleado']
+        roles = session['roles']
+        jerarquia = session['jerarquia']
+        personal = session['personal']
+        recursos = obtener_recursos()
+        #print(recursos)
+        dias_por_aprobar = []
+        for empleado_ in personal:
+            dia_por_empleado = obtener_dias_por_aprobar(empleado_)
+            dias_por_aprobar.append(dia_por_empleado)
+        if all(not dia_por_empleado for dia_por_empleado in dias_por_aprobar):
+            dias_por_aprobar = False
+
+        fechas_aprobadas_totales = {}
+        for persona in personal:
+            fechas_aprobadas = bring_approved(persona)
+            fechas_aprobadas_totales[persona] = fechas_aprobadas
+        fechas_aprobadas_json = json.dumps(fechas_aprobadas_totales)
+        fechas_apro_fin = json.loads(fechas_aprobadas_json)
+        #print(fechas_aprobadas_json)
+        return render_template('pages/editar_dia.html', empleado = empleado, roles = roles, personal = personal, jerarquia=jerarquia, dias_por_aprobar=dias_por_aprobar, fechas_aprobadas=fechas_apro_fin, recursos=recursos)
+    
 filtrar_dias_bp = Blueprint('filtrar_dias', __name__)
 @filtrar_dias_bp.route('/filtrar_dias', methods=['GET', 'POST'])
 def filtrar_dias():
@@ -95,7 +122,7 @@ def filtrar_dias():
             fechas_apro_fin = json.loads(fechas_aprobadas_json)
 
             # Renderizar la plantilla con los datos obtenidos
-            return render_template('pages/aprobacion.html', empleado=empleado, roles=roles, personal=personal, jerarquia=jerarquia, dias_por_aprobar=dias_por_aprobar, fechas_aprobadas=fechas_apro_fin, dias_filtrados = filtro_aplicado, recursos=recursos)
+            return render_template('pages/editar_dia.html', empleado=empleado, roles=roles, personal=personal, jerarquia=jerarquia, dias_por_aprobar=dias_por_aprobar, fechas_aprobadas=fechas_apro_fin, dias_filtrados = filtro_aplicado, recursos=recursos)
         else:
             # Manejar el caso en que la solicitud no sea POST
             return "Método no permitido", 405

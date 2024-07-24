@@ -51,9 +51,8 @@ def obtener_dias_filtro(empleado_, concepto, fecha_inicio_, fecha_fin, area):
         cursor = conexion.cursor()
 
         try:
-            consulta = ""
-            parametros = []
             consulta = f"SELECT empleado, fecha_inicio, fecha_final, fecha_solicitud, estado, causa FROM {concepto} WHERE 1=1"
+            parametros = []
 
             if empleado_ != 'todos':
                 consulta += " AND empleado = %s"
@@ -70,6 +69,11 @@ def obtener_dias_filtro(empleado_, concepto, fecha_inicio_, fecha_fin, area):
             if area != 'RRHH':
                 consulta += " AND area = %s"
                 parametros.append(area)
+
+            # Calcular la fecha de hace 30 días
+            hace_30_dias = (datetime.now() - timedelta(days=30)).strftime('%Y-%m-%d')
+            consulta += " AND fecha_inicio >= %s"
+            parametros.append(hace_30_dias)
 
             cursor.execute(consulta, parametros)
             resultados = cursor.fetchall()
@@ -98,6 +102,7 @@ def obtener_dias_filtro(empleado_, concepto, fecha_inicio_, fecha_fin, area):
         finally:
             cursor.close()
             cerrar_db(conexion)
+    
     return dias_filtro
 
 

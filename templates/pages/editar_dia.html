@@ -4,8 +4,11 @@
 {% block title %}Edición{% endblock %}
 
 {% block content %}
-  {% if 'rrhh' not in roles %}
-  {% include 'components/aprobacion.html'%}
+  {% if jerarquia in ['2', '3', '4', '5'] %}
+  {% include 'components/dias_aprobados.html'%}
+  {% endif %}
+  {% if dias_filtrados %}
+    {% include 'components/dias_filtrados.html'%}
   {% endif %}
 {% endblock %}
 

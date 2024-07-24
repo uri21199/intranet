@@ -3,7 +3,7 @@ from flask import Flask, render_template
 from src.routes.login import login_bp
 from src.routes.logout import logout_bp
 from src.routes.inicio import inicio_bp
-from src.routes.edicion import informacion_bp, aprobacion_bp, filtrar_dias_bp, editar_dia_bp, elegir_recurso_edit_bp, editar_recurso_bp
+from src.routes.edicion import informacion_bp, aprobacion_bp, editarDia_bp, filtrar_dias_bp, editar_dia_bp, elegir_recurso_edit_bp, editar_recurso_bp
 from src.routes.configuracion import configuracion_bp, save_pass_bp
 from src.routes.documentos import documentos_bp
 from src.routes.save_date import save_date_bp, delete_date_bp, save_home_office_bp
@@ -57,6 +57,7 @@ app.register_blueprint(aprobar_solicitud_bp)
 app.register_blueprint(eliminar_solicitud_bp)
 app.register_blueprint(filtrar_dias_bp)
 app.register_blueprint(editar_dia_bp)
+app.register_blueprint(editarDia_bp)
 app.register_blueprint(editar_recurso_bp)
 app.register_blueprint(rrhh_bp)
 app.register_blueprint(files_bp, url_prefix='/files')

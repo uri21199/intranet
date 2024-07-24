@@ -96,12 +96,17 @@
                             </li>
                             <li>
                                 <a href="{{ url_for('informacion.informacion') }}">
-                                    <span class="text">Informacion</span>
+                                    <span class="text">Informacion del empleado</span>
                                 </a>
                             </li>         
                             <li>
                                 <a href="{{ url_for('aprobacion.aprobacion') }}">
-                                    <span class="text">Aprobacion</span>
+                                    <span class="text">Aprobacion de días</span>
+                                </a>
+                            </li> 
+                            <li>
+                                <a href="{{ url_for('editarDia.editarDia') }}">
+                                    <span class="text">Editar días</span>
                                 </a>
                             </li>          
                             {% endif %}
