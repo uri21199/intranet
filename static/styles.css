@@ -404,7 +404,6 @@
   display: block;
   position: relative;
   background-color: #f9f9f9;
-  max-height: 300px; /* Altura máxima con desplazamiento */
   overflow-y: auto; /* Desplazamiento vertical */
   border: 1px solid #ccc;
   border-top: none;

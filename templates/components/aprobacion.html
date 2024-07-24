@@ -2,61 +2,118 @@
 <div class="tablaDropdown">
     <div class="dropdownHeader" onclick="toggleDropdown()">Fechas por aprobar</div>
     <div class="dropdownContent">
-        <table class="aprobarSolicitudes">
-            <thead>
-                <tr>
-                    <th>Empleado</th>
-                    <th>Fecha de Inicio</th>
-                    <th>Fecha Final</th>
-                    <th>Concepto</th>
-                    <th>Fecha de Solicitud</th>
-                    <th>Estado</th>
-                    <th>Causa</th>
-                    <th>Acción</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for lista_dias in dias_por_aprobar %}
-                    {% for solicitud in lista_dias %}
-                    <tr>
-                        <td>{{ solicitud.empleado }}</td>
-                        <td>{{ solicitud.fecha_inicio }}</td>
-                        <td>{{ solicitud.fecha_fin }}</td>
-                        <td>{{ solicitud.concepto }}</td>
-                        <td>{{ solicitud.fecha_solicitud }}</td>
-                        <td>{{ solicitud.estado }}</td>
-                        <td>{{ solicitud.causa }}</td>
-                        <td>
-                            <form action="/aprobar_solicitud" method="POST">
-                                <input type="hidden" name="empleado" value="{{ solicitud.empleado }}">
-                                <input type="hidden" name="fecha" value="{{ solicitud.fecha_inicio }}">
-                                <input type="hidden" name="concepto" value="{{ solicitud.concepto }}">
-                                <input type="hidden" name="gerente" value="{{ empleado }}">
-                                <button type="submit" class="aprobarBtn">Aprobar</button>
-                            </form>
-                            <form action="/eliminar_solicitud" method="POST">
-                                <input type="hidden" name="empleado" value="{{ solicitud.empleado }}">
-                                <input type="hidden" name="fecha" value="{{ solicitud.fecha_inicio }}">
-                                <input type="hidden" name="concepto" value="{{ solicitud.concepto }}">
-                                <input type="hidden" name="gerente" value="{{ empleado }}">
-                                <label for="justificacion_{{ solicitud.empleado }}">Justificación del rechazo:</label>
-                                <input type="text" name="causa" id="justificacion_{{ solicitud.empleado }}" required>
-                                <button type="submit" class="eliminarBtn">Rechazar</button>
-                            </form>
-                        </td>
-                    </tr>
-                    {% endfor %}
-                {% endfor %}
-            </tbody>
-        </table>
+        <form id="aprobarForm" action="/aprobar_solicitud" method="POST">
+            <div class="table-container">
+                <table class="aprobarSolicitudes">
+                    <thead>
+                        <tr>
+                            <th><input type="checkbox" id="selectAll" onclick="toggleAll(this)"></th>
+                            <th>Empleado</th>
+                            <th>Fecha de Inicio</th>
+                            <th>Fecha Final</th>
+                            <th>Concepto</th>
+                            <th>Fecha de Solicitud</th>
+                            <th>Estado</th>
+                            <th>Causa</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for lista_dias in dias_por_aprobar %}
+                            {% for solicitud in lista_dias %}
+                            <tr>
+                                <td><input type="checkbox" name="solicitudes" value="{{ solicitud.empleado }}|{{ solicitud.fecha_inicio }}|{{ solicitud.concepto }}"></td>
+                                <td>{{ solicitud.empleado }}</td>
+                                <td>{{ solicitud.fecha_inicio }}</td>
+                                <td>{{ solicitud.fecha_fin }}</td>
+                                <td>{{ solicitud.concepto }}</td>
+                                <td>{{ solicitud.fecha_solicitud }}</td>
+                                <td>{{ solicitud.estado }}</td>
+                                <td>{{ solicitud.causa }}</td>
+                                <td>
+                                    <button type="button" class="rechazarBtn" onclick="rechazarSolicitud('{{ solicitud.empleado }}', '{{ solicitud.fecha_inicio }}', '{{ solicitud.concepto }}')">Rechazar</button>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            <button type="submit" class="aprobarBtn">Aprobar Seleccionados</button>
+        </form>
     </div>
 </div>
-   
 {% endif %}
-
 <script>
-    function mostrarJustificacion(empleado) {
-        var justificacionInput = document.getElementById('justificacion_' + empleado);
-        justificacionInput.style.display = 'block';
+    function toggleAll(selectAllCheckbox) {
+        var checkboxes = document.querySelectorAll('input[name="solicitudes"]');
+        checkboxes.forEach(checkbox => checkbox.checked = selectAllCheckbox.checked);
+    }
+
+    document.getElementById('aprobarForm').addEventListener('submit', function(event) {
+        var selected = document.querySelectorAll('input[name="solicitudes"]:checked').length;
+        if (selected === 0) {
+            alert("Por favor, selecciona al menos una solicitud para aprobar.");
+            event.preventDefault();
+        } else if (!confirm("¿Estás seguro de que deseas aprobar las solicitudes seleccionadas?")) {
+            event.preventDefault();
+        }
+    });
+
+    function rechazarSolicitud(empleado, fecha, concepto) {
+        if (confirm("¿Estás seguro de que deseas rechazar esta solicitud?")) {
+            const form = document.createElement('form');
+            form.method = 'POST';
+            form.action = '/eliminar_solicitud';
+
+            const empleadoInput = document.createElement('input');
+            empleadoInput.type = 'hidden';
+            empleadoInput.name = 'empleado';
+            empleadoInput.value = empleado;
+            form.appendChild(empleadoInput);
+
+            const fechaInput = document.createElement('input');
+            fechaInput.type = 'hidden';
+            fechaInput.name = 'fecha';
+            fechaInput.value = fecha;
+            form.appendChild(fechaInput);
+
+            const conceptoInput = document.createElement('input');
+            conceptoInput.type = 'hidden';
+            conceptoInput.name = 'concepto';
+            conceptoInput.value = concepto;
+            form.appendChild(conceptoInput);
+
+            document.body.appendChild(form);
+            form.submit();
+        }
     }
 </script>
+<style>
+.table-container {
+    max-height: 400px; /* Ajusta esta altura según sea necesario */
+    overflow-y: auto;
+    border: 1px solid #ddd;
+}
+
+.aprobarSolicitudes {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.aprobarSolicitudes thead th {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+
+.aprobarSolicitudes th, .aprobarSolicitudes td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+.aprobarSolicitudes th {
+    font-weight: bold;
+}
+</style>
